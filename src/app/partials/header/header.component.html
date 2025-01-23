@@ -1,0 +1,41 @@
+ <header class="flex text-gray-100 body-font border-b border-blue-500 justify-center">
+    <div
+      class="container flex p-5 flex-col md:flex-row items-center max-w-full"
+    >
+      <a
+        class="flex title-font font-medium items-center text-gray-100 mb-4 md:mb-0"
+      >
+        <img 
+  src={{logo}} 
+  alt="logo"  
+  class="w-[150px] h-[150px] object-cover rounded border-2 border-blue-500 mr-3"
+>
+    
+        <span class="ml-3 text-xl text-blue-300">Ô Maître</span>
+      </a>
+      <nav
+        class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center"
+      >
+      @for (menu of menus; track $index) {
+        <a class="mr-10 hover:text-blue-300 transition-colors duration-300 text-xl"
+          >{{menu}}</a>
+      }
+      </nav>
+      <button
+        class="tron-btn inline-flex items-center border-2 border-blue-500 py-1 px-3 focus:outline-none hover:bg-blue-900/20 rounded text-base mt-4 md:mt-0 text-blue-400"
+      >
+        Réinitialisation
+        <svg
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          class="w-4 h-4 ml-1"
+          viewBox="0 0 24 24"
+        >
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+  </header>

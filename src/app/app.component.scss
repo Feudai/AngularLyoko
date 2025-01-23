@@ -1,0 +1,86 @@
+// Tron: Legacy Inspired Color Palette
+$tron-black: #0a0a0a;
+$tron-blue: #007eff;
+$tron-light-blue: #6fc3df;
+$tron-white: #f0f0f0;
+$tron-electric-blue: #00f3ff;
+$tron-grid-line: rgba(0, 243, 255, 0.2);
+
+// Grid-like Background Mixin
+@mixin tron-grid-background {
+    background-color: $tron-black;
+    background-image:
+        linear-gradient(0deg, transparent 24%, $tron-grid-line 25%, $tron-grid-line 26%, transparent 27%, transparent 74%, $tron-grid-line 75%, $tron-grid-line 76%, transparent 77%, transparent),
+        linear-gradient(90deg, transparent 24%, $tron-grid-line 25%, $tron-grid-line 26%, transparent 27%, transparent 74%, $tron-grid-line 75%, $tron-grid-line 76%, transparent 77%, transparent);
+    background-size: 50px 50px;
+}
+
+// Glowing Neon Effect Mixin
+@mixin neon-glow($color) {
+    color: $color;
+    text-shadow:
+        0 0 5px $color,
+        0 0 10px $color,
+        0 0 15px $color,
+        0 0 20px darken($color, 10%);
+}
+
+// Tron-style Button
+@mixin tron-button {
+    background-color: transparent;
+    border: 2px solid $tron-blue;
+    color: $tron-blue;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: rgba(0, 126, 255, 0.1);
+        @include neon-glow($tron-blue);
+        box-shadow: 0 0 10px $tron-blue;
+    }
+}
+
+// Global Styles
+body {
+    @include tron-grid-background;
+    color: $tron-white;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+// Typography
+h1,
+h2,
+h3 {
+    @include neon-glow($tron-electric-blue);
+    font-weight: 300;
+}
+
+// Buttons
+.tron-btn {
+    @include tron-button;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+// Input Styles
+.tron-input {
+    background-color: transparent;
+    border: 1px solid $tron-light-blue;
+    color: $tron-white;
+
+    &:focus {
+        outline: none;
+        border-color: $tron-electric-blue;
+        box-shadow: 0 0 10px $tron-electric-blue;
+    }
+}
+
+// Divider
+.tron-divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, $tron-blue, transparent);
+    margin: 20px 0;
+}
